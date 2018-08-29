@@ -17,22 +17,15 @@ namespace random
             }
 
             List<int> sqrList = new List<int>();
-            List<int> sqrListNoOdd = new List<int>();
 
             foreach (var item in randList)
             {
                 sqrList.Add(item ^ 2);
             }
 
-            foreach (var item in sqrList)
-            {
-                if (item % 2 == 0)
-                {
-                    sqrListNoOdd.Add(item);
-                }
-            }
+            sqrList.RemoveAll(i => i % 2 != 0);
 
-            foreach (var item in sqrListNoOdd)
+            foreach (var item in sqrList)
             {
                 Console.WriteLine(item);
 
